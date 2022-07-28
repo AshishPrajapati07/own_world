@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import HeroSection from "../Components/HeroSection";
+import { useGlobalContext } from "../src/context";
 
-const About = () => {
-  const data={
-    name : "FullStack Developer",
-    image: "./public/fullstack.png"
-  }
-  return <HeroSection {...data} />;
+const About = () => {  
+  const { updateAboutPage } = useGlobalContext();
+
+  useEffect(() => updateAboutPage(), []);
+
+  return <HeroSection />;
 };
 
 export default About;

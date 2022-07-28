@@ -4,18 +4,18 @@ import styled from "styled-components";
 import { useGlobalContext } from "../src/context";
 import { Button } from "../style/Button";
 
-const HeroSection = ({ topHead, name, image }) => {
-  const { fname, age } = useGlobalContext();
+const HeroSection = () => {
+  const { name, image } = useGlobalContext();
 
   return (
     <Wrapper>
       <div className="container grid grid-two-column">
         {/* For Data section */}
         <div className="section-hero-data">
-          <p className="hero-top-data">{topHead}</p>
+          <p className="hero-top-data">This Is Me</p>
           <h1 className="hero-heading">{name}</h1>
           <p className="hero-para">
-            I'm {fname} Prajapati. I'm {age} year old. I'm a web developer. I
+            I'm {name} Prajapati. I'm 21 year old. I'm a web developer. I
             spend my whole day, practically every day, experimenting with HTML,
             CSS, and JavaScript; dabbling with React and Node; and inhaling a
             wide variety of potentially useless information through a few
