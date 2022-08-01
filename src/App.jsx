@@ -7,6 +7,7 @@ import Footer from "../Components/Footer";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyle } from "./GlobalStyle";
+import Error from "../pages/Error";
 
 const App = () => {
   const theme = {
@@ -17,7 +18,7 @@ const App = () => {
       black: " #212529",
       helper: "#0071f2",
       bg: "rgb(249 249 255)",
-      footer_bg: "#0a1435",
+      footer_bg: "#0950c3",
       btn: "#0071f2",
       border: "rgba(98, 84, 243, 0.5)",
       hr: "#ffffff",
@@ -40,6 +41,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contacts />} />
           <Route path="/services" element={<Services />} />
+          <Route path="*" element={<Error />} />
         </Routes>
         <Footer />
       </Router>

@@ -1,17 +1,19 @@
-import React, { useContext, useReducer } from "react";
-import reducer from './reducer';
+import React, { useContext, useEffect, useReducer } from "react";
+import reducer from "./reducer";
 
 const AppContext = React.createContext();
 
 const intialState = {
   name: "",
   image: "",
+  services: [],
 };
 
+const API = "https://thapareactapi.up.railway.app/";
 
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, intialState);
-  
+
   const updateHomePage = () => {
     return dispatch({
       type: "HOME_UPDATE",
@@ -21,7 +23,23 @@ const AppProvider = ({ children }) => {
       },
     });
   };
-  
+
+  //to get api data
+  const getServices = async (url) => {
+    try {
+      const res = await fetch(url);
+      const data = await res.json();
+      dispatch({ type: "GET_SERVICES", payload: data });
+    } catch (error) {
+      console.log("ErrorInUrl", error);
+    }
+  };
+
+  // to call the api
+  useEffect(() => {
+    getServices(API);
+  }, []);
+
   const updateAboutPage = () => {
     return dispatch({
       type: "ABOUT_UPDATE",
