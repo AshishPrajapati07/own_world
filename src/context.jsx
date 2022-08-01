@@ -9,7 +9,7 @@ const intialState = {
   services: [],
 };
 
-const API = "https://thapareactapi.up.railway.app/";
+const API = "../services.json";
 
 const AppProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, intialState);
